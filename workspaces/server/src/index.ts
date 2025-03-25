@@ -19,6 +19,7 @@ async function main() {
       'x-robots-tag': 'noindex',
     });
   });
+  // 全てのオリジンからのリクエストを許可
   app.register(cors, {
     origin: true,
   });
