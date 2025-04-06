@@ -72,7 +72,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
     } satisfies FastifyZodOpenApiSchema,
     handler: async function initialize(_req, reply) {
       await initializeDatabase();
-      return reply.code(200).send({});
+      reply.code(200).send({});
+      return reply;
     },
   });
 
@@ -107,7 +108,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
           return void 0;
         },
       });
-      return reply.code(200).send(channels);
+      reply.code(200).send(channels);
+      return reply;
     },
   });
 
@@ -138,7 +140,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
       if (channel == null) {
         return reply.code(404).send();
       }
-      return reply.code(200).send(channel);
+      reply.code(200).send(channel);
+      return reply;
     },
   });
 
@@ -184,7 +187,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
           },
         },
       });
-      return reply.code(200).send(episodes);
+      reply.code(200).send(episodes);
+      return reply;
     },
   });
 
@@ -226,7 +230,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
       if (episode == null) {
         return reply.code(404).send();
       }
-      return reply.code(200).send(episode);
+      reply.code(200).send(episode);
+      return reply;
     },
   });
 
@@ -271,7 +276,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
           },
         },
       });
-      return reply.code(200).send(series);
+      reply.code(200).send(series);
+      return reply;
     },
   });
 
@@ -312,7 +318,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
       if (series == null) {
         return reply.code(404).send();
       }
-      return reply.code(200).send(series);
+      reply.code(200).send(series);
+      return reply;
     },
   });
 
@@ -348,7 +355,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
           );
         },
       });
-      return reply.code(200).send(programs);
+      reply.code(200).send(programs);
+      return reply;
     },
   });
 
@@ -399,7 +407,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
           },
         },
       });
-      return reply.code(200).send(programs);
+      reply.code(200).send(programs);
+      return reply;
     },
   });
 
@@ -446,7 +455,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
       if (program == null) {
         return reply.code(404).send();
       }
-      return reply.code(200).send(program);
+      reply.code(200).send(program);
+      return reply;
     },
   });
 
@@ -514,7 +524,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
           },
         },
       });
-      return reply.code(200).send(modules);
+      reply.code(200).send(modules);
+      return reply;
     },
   });
 
@@ -549,7 +560,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
       const ret = schema.signInResponse.parse({ id: user.id, email: user.email });
 
       req.session.set('id', ret.id.toString());
-      return reply.code(200).send(user);
+      reply.code(200).send(user);
+      return reply;
     },
   });
 
@@ -597,7 +609,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
       const ret = schema.signUpResponse.parse({ id: user.id, email: user.email });
 
       req.session.set('id', ret.id.toString());
-      return reply.code(200).send(ret);
+      reply.code(200).send(ret);
+      return reply;
     },
   });
 
@@ -632,7 +645,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
       if (!user) {
         return reply.code(401).send();
       }
-      return reply.code(200).send(user);
+      reply.code(200).send(user);
+      return reply;
     },
   });
 
@@ -648,7 +662,8 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
         return reply.code(401).send();
       }
       req.session.set('id', void 0);
-      return reply.code(200).send();
+      reply.code(200).send();
+      return reply;
     },
   });
 

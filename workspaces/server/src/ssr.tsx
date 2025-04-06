@@ -74,5 +74,6 @@ export function registerSsr(app: FastifyInstance): void {
         })};
       </script>
     `);
+    return reply;
   });
 }

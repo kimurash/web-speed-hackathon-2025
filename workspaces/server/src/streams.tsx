@@ -56,7 +56,8 @@ export function registerStreams(app: FastifyInstance): void {
       #EXT-X-ENDLIST
     `;
 
-    return reply.type('application/vnd.apple.mpegurl').send(playlist);
+    reply.type('application/vnd.apple.mpegurl').send(playlist);
+    return reply;
   });
 
   app.get<{
@@ -121,6 +122,7 @@ export function registerStreams(app: FastifyInstance): void {
       );
     }
 
-    return reply.type('application/vnd.apple.mpegurl').send(playlist.join('\n'));
+    reply.type('application/vnd.apple.mpegurl').send(playlist.join('\n'));
+    return reply;
   });
 }
