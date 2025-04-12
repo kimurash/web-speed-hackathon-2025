@@ -3,7 +3,6 @@ import type * as schema from '@wsh-2025/schema/src/openapi/schema';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import { ReactElement, useEffect, useRef, useState } from 'react';
-import Ellipsis from 'react-ellipsis-component';
 import { ArrayValues } from 'type-fest';
 
 import { Hoverable } from '@wsh-2025/client/src/features/layout/components/Hoverable';
@@ -72,11 +71,11 @@ export const Program = ({ height, program }: Props): ReactElement => {
               </span>
               <div
                 className={classNames(
-                  'grow-1 shrink-1 overflow-hidden text-[14px] font-bold',
+                  'grow-1 shrink-1 line-clamp-3 overflow-hidden text-[14px] font-bold',
                   isBroadcasting ? 'text-[#212121]' : 'text-[#ffffff]',
                 )}
               >
-                <Ellipsis ellipsis reflowOnResize maxLine={3} text={program.title} visibleLine={3} />
+                {program.title}
               </div>
             </div>
             <div className={classNames('w-full', shouldImageBeVisible ? 'opacity-100' : 'opacity-0')}>
