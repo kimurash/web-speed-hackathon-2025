@@ -32,7 +32,7 @@ export const SeekThumbnail = ({ episode }: Props) => {
   const elementRect = ref.current?.parentElement?.getBoundingClientRect() ?? { left: 0, width: 0 };
   const relativeX = pointer.x - elementRect.left;
 
-  const percentage = Math.max(0, Math.min(relativeX / elementRect.width, 1));
+  const percentage = Math.max(0, Math.min(0 < elementRect.width ? relativeX / elementRect.width : 0, 1));
   const pointedTime = duration * percentage;
 
   // サムネイルが画面からはみ出ないようにサムネイル中央を基準として left を計算する
