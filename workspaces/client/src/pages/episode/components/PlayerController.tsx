@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import dayjs from 'dayjs';
 import invariant from 'tiny-invariant';
 
-import { Hoverable } from '@wsh-2025/client/src/features/layout/components/Hoverable';
 import { MaterialSymbolsPauseRounded } from '@wsh-2025/client/src/pages/episode/components/MaterialSymbolsPauseRounded';
 import { MaterialSymbolsPlayArrowRounded } from '@wsh-2025/client/src/pages/episode/components/MaterialSymbolsPlayArrowRounded';
 import { SeekThumbnail } from '@wsh-2025/client/src/pages/episode/components/SeekThumbnail';
@@ -55,18 +54,16 @@ export const PlayerController = ({ episode }: Props) => {
         <div className="flex w-full flex-row items-center justify-between">
           <div className="flex flex-row items-center">
             <div className="flex flex-row items-center">
-              <Hoverable classNames={{ default: 'bg-transparent', hovered: 'bg-[#FFFFFF1F]' }}>
-                <button
-                  aria-label={playing ? '一時停止する' : '再生する'}
-                  className="block rounded-[4px]"
-                  type="button"
-                  onClick={() => {
-                    togglePlaying();
-                  }}
-                >
-                  {playing ? <MaterialSymbolsPauseRounded /> : <MaterialSymbolsPlayArrowRounded />}
-                </button>
-              </Hoverable>
+              <button
+                aria-label={playing ? '一時停止する' : '再生する'}
+                className="block cursor-pointer rounded-[4px] bg-transparent hover:bg-[#FFFFFF1F]"
+                type="button"
+                onClick={() => {
+                  togglePlaying();
+                }}
+              >
+                {playing ? <MaterialSymbolsPauseRounded /> : <MaterialSymbolsPlayArrowRounded />}
+              </button>
 
               <span className="ml-[4px] block shrink-0 grow-0 text-[12px] font-bold text-[#FFFFFF]">
                 {dayjs.duration(currentTime, 'seconds').format('mm:ss')}
@@ -77,23 +74,21 @@ export const PlayerController = ({ episode }: Props) => {
           </div>
 
           <div className="flex flex-row items-center">
-            <Hoverable classNames={{ default: 'bg-transparent', hovered: 'bg-[#FFFFFF1F]' }}>
-              <button
-                aria-label={muted ? 'ミュート解除する' : 'ミュートする'}
-                className="block rounded-[4px]"
-                type="button"
-              >
-                <span
-                  className={classNames(
-                    'm-[14px] block size-[20px] shrink-0 grow-0 text-[#FFFFFF]',
-                    muted ? 'i-material-symbols:volume-off-rounded' : 'i-material-symbols:volume-up-rounded',
-                  )}
-                  onClick={() => {
-                    toggleMuted();
-                  }}
-                />
-              </button>
-            </Hoverable>
+            <button
+              aria-label={muted ? 'ミュート解除する' : 'ミュートする'}
+              className="block cursor-pointer rounded-[4px] bg-transparent hover:bg-[#FFFFFF1F]"
+              type="button"
+            >
+              <span
+                className={classNames(
+                  'm-[14px] block size-[20px] shrink-0 grow-0 text-[#FFFFFF]',
+                  muted ? 'i-material-symbols:volume-off-rounded' : 'i-material-symbols:volume-up-rounded',
+                )}
+                onClick={() => {
+                  toggleMuted();
+                }}
+              />
+            </button>
           </div>
         </div>
       </div>
