@@ -6,7 +6,6 @@ import invariant from 'tiny-invariant';
 import { createStore } from '@wsh-2025/client/src/app/createStore';
 import { useAuthActions } from '@wsh-2025/client/src/features/auth/hooks/useAuthActions';
 import { useAuthUser } from '@wsh-2025/client/src/features/auth/hooks/useAuthUser';
-import { AspectRatio } from '@wsh-2025/client/src/features/layout/components/AspectRatio';
 import { Player } from '@wsh-2025/client/src/features/player/components/Player';
 import { RecommendedSection } from '@wsh-2025/client/src/features/recommended/components/RecommendedSection';
 import { useRecommended } from '@wsh-2025/client/src/features/recommended/hooks/useRecommended';
@@ -73,7 +72,7 @@ export const EpisodePage = () => {
             ) : (
               <Suspense
                 fallback={
-                  <AspectRatio ratioHeight={9} ratioWidth={16}>
+                  <div className="relative aspect-video w-full">
                     <div className="grid size-full">
                       <img
                         alt=""
@@ -118,7 +117,7 @@ export const EpisodePage = () => {
                         </g>
                       </svg>
                     </div>
-                  </AspectRatio>
+                  </div>
                 }
               >
                 <div className="relative size-full">
