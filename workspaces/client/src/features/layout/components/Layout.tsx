@@ -10,10 +10,6 @@ import { AuthDialogType } from '@wsh-2025/client/src/features/auth/constants/aut
 import { useAuthActions } from '@wsh-2025/client/src/features/auth/hooks/useAuthActions';
 import { useAuthDialogType } from '@wsh-2025/client/src/features/auth/hooks/useAuthDialogType';
 import { useAuthUser } from '@wsh-2025/client/src/features/auth/hooks/useAuthUser';
-import BiHouseFillIcon from '@wsh-2025/client/src/features/layout/components/BiHouseFIlIcon ';
-import FaSolidCalendarIcon from '@wsh-2025/client/src/features/layout/components/FaSolidCalendar';
-import FaSolidSignOutAltIcon from '@wsh-2025/client/src/features/layout/components/FaSolidSignOutAltIcon';
-import FaSolidUserIcon from '@wsh-2025/client/src/features/layout/components/FaSolidUserIcon';
 import { Loading } from '@wsh-2025/client/src/features/layout/components/Loading';
 
 interface Props {
@@ -76,7 +72,12 @@ export const Layout = ({ children }: Props) => {
               type="button"
               onClick={isSignedIn ? authActions.openSignOutDialog : authActions.openSignInDialog}
             >
-              {isSignedIn ? <FaSolidUserIcon /> : <FaSolidSignOutAltIcon />}
+              <div
+                className={classNames(
+                  'm-[4px] size-[20px] shrink-0 grow-0',
+                  isSignedIn ? `i-fa-solid-sign-out-alt` : `i-fa-solid-user`,
+                )}
+              />
               <span className="grow-1 shrink-1 ml-[16px] text-left text-[14px] font-bold">
                 {isSignedIn ? 'ログアウト' : 'ログイン'}
               </span>
@@ -86,7 +87,7 @@ export const Layout = ({ children }: Props) => {
               className="block flex h-[56px] w-[188px] items-center justify-center pb-[8px] pl-[20px] pr-[8px] pt-[8px]"
               to="/"
             >
-              <BiHouseFillIcon />
+              <div className="i-bi:house-fill m-[4px] size-[20px] shrink-0 grow-0" />
               <span className="grow-1 shrink-1 ml-[16px] text-left text-[14px] font-bold">ホーム</span>
             </Link>
 
@@ -94,7 +95,7 @@ export const Layout = ({ children }: Props) => {
               className="block flex h-[56px] w-[188px] items-center justify-center pb-[8px] pl-[20px] pr-[8px] pt-[8px]"
               to="/timetable"
             >
-              <FaSolidCalendarIcon />
+              <div className="i-fa-solid:calendar m-[4px] size-[20px] shrink-0 grow-0" />
               <span className="grow-1 shrink-1 ml-[16px] text-left text-[14px] font-bold">番組表</span>
             </Link>
           </nav>

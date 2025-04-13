@@ -5,8 +5,6 @@ import classNames from 'classnames';
 import dayjs from 'dayjs';
 import invariant from 'tiny-invariant';
 
-import { MaterialSymbolsPauseRounded } from '@wsh-2025/client/src/pages/episode/components/MaterialSymbolsPauseRounded';
-import { MaterialSymbolsPlayArrowRounded } from '@wsh-2025/client/src/pages/episode/components/MaterialSymbolsPlayArrowRounded';
 import { SeekThumbnail } from '@wsh-2025/client/src/pages/episode/components/SeekThumbnail';
 import { useCurrentTime } from '@wsh-2025/client/src/pages/episode/hooks/useCurrentTime';
 import { useDuration } from '@wsh-2025/client/src/pages/episode/hooks/useDuration';
@@ -62,7 +60,12 @@ export const PlayerController = ({ episode }: Props) => {
                   togglePlaying();
                 }}
               >
-                {playing ? <MaterialSymbolsPauseRounded /> : <MaterialSymbolsPlayArrowRounded />}
+                <span
+                  className={classNames(
+                    'm-[14px] block size-[20px] shrink-0 grow-0 text-[#FFFFFF]',
+                    playing ? 'i-material-symbols:pause-rounded' : 'i-material-symbols:play-arrow-rounded',
+                  )}
+                />
               </button>
 
               <span className="ml-[4px] block shrink-0 grow-0 text-[12px] font-bold text-[#FFFFFF]">
