@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Flipped } from 'react-flip-toolkit';
-import { Params, useLoaderData, useParams } from 'react-router';
+import { Params, useLoaderData } from 'react-router';
 import invariant from 'tiny-invariant';
 
 import { createStore } from '@wsh-2025/client/src/app/createStore';
@@ -8,7 +8,6 @@ import { useAuthActions } from '@wsh-2025/client/src/features/auth/hooks/useAuth
 import { useAuthUser } from '@wsh-2025/client/src/features/auth/hooks/useAuthUser';
 import { Player } from '@wsh-2025/client/src/features/player/components/Player';
 import { RecommendedSection } from '@wsh-2025/client/src/features/recommended/components/RecommendedSection';
-import { useRecommended } from '@wsh-2025/client/src/features/recommended/hooks/useRecommended';
 import { SeriesEpisodeList } from '@wsh-2025/client/src/features/series/components/SeriesEpisodeList';
 import { PlayerController } from '@wsh-2025/client/src/pages/episode/components/PlayerController';
 import { usePlayerRef } from '@wsh-2025/client/src/pages/episode/hooks/usePlayerRef';
@@ -24,16 +23,11 @@ export const prefetch = async (store: ReturnType<typeof createStore>, { episodeI
 
 export const EpisodePage = () => {
   type PrefetchReturnType = ReturnType<typeof prefetch>;
-  const { episode } = useLoaderData<Awaited<PrefetchReturnType>>();
+  const { episode, modules } = useLoaderData<Awaited<PrefetchReturnType>>();
   invariant(episode);
 
   const authActions = useAuthActions();
   const user = useAuthUser();
-
-  const { episodeId } = useParams();
-  invariant(episodeId);
-
-  const modules = useRecommended({ referenceId: episodeId });
 
   const playerRef = usePlayerRef();
 
