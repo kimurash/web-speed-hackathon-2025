@@ -35,7 +35,6 @@ export const ProgramPage = () => {
   invariant(program);
 
   const timetable = useTimetable();
-  console.log('timetable', timetable);
   const nextProgram = timetable[program.channel.id]?.find((p) => {
     return dayjs(program.endAt).isSame(dayjs(p.startAt));
   });
