@@ -32,8 +32,10 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
   await app.register(fastifySession, {
     cookie: {
       path: '/',
+      secure: false,
     },
     cookieName: 'wsh-2025-session',
+    saveUninitialized: false,
     secret: randomBytes(32).toString('base64'),
   });
   await app.register(fastifyZodOpenApiPlugin);
