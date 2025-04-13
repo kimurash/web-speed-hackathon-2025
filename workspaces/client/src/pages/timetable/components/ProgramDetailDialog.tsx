@@ -33,8 +33,8 @@ export const ProgramDetailDialog = ({ isOpen, program }: Props): ReactElement =>
         <img
           alt=""
           className="mb-[24px] aspect-video w-full rounded-[8px] border-[2px] border-solid border-[#FFFFFF1F]"
-          loading="lazy"
-          decoding="async"
+          // loading="lazy"
+          // decoding="async"
           src={program.thumbnailUrl}
         />
 
@@ -49,8 +49,8 @@ export const ProgramDetailDialog = ({ isOpen, program }: Props): ReactElement =>
             <img
               alt=""
               className="mb-[24px] aspect-video w-full rounded-[8px] border-[2px] border-solid border-[#FFFFFF1F]"
-              loading="lazy"
-              decoding="async"
+              // loading="lazy"
+              // decoding="async"
               src={episode.thumbnailUrl}
             />
           </>

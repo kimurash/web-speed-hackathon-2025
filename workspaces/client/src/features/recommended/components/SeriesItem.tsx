@@ -24,8 +24,8 @@ export const SeriesItem = ({ series }: Props) => {
                 <img
                   alt=""
                   className="aspect-video h-auto w-full"
-                  loading="lazy"
-                  decoding="async"
+                  // loading="lazy"
+                  // decoding="async"
                   src={series.thumbnailUrl}
                 />
               </Flipped>

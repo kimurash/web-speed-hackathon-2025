@@ -27,8 +27,8 @@ export const SeriesEpisodeItem = ({ episode, selected }: Props) => {
                 <img
                   alt=""
                   className="aspect-video h-auto w-[192px]"
-                  loading="lazy"
-                  decoding="async"
+                  // loading="lazy"
+                  // decoding="async"
                   src={episode.thumbnailUrl}
                 />
                 <svg

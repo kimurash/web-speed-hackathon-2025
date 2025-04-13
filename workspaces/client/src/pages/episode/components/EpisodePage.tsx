@@ -51,8 +51,8 @@ export const EpisodePage = () => {
                 <img
                   alt=""
                   className="aspect-video h-auto w-full"
-                  loading="lazy"
-                  decoding="async"
+                  // loading="lazy"
+                  // decoding="async"
                   src={episode.thumbnailUrl}
                 />
 
@@ -77,8 +77,8 @@ export const EpisodePage = () => {
                       <img
                         alt=""
                         className="aspect-video size-full place-self-stretch [grid-area:1/-1]"
-                        loading="lazy"
-                        decoding="async"
+                        // loading="lazy"
+                        // decoding="async"
                         src={episode.thumbnailUrl}
                       />
                       <div className="size-full place-self-stretch bg-[#00000077] [grid-area:1/-1]" />
